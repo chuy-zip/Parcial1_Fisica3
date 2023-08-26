@@ -7,10 +7,6 @@ fun heightFunctionOfSemicircle(maxRadius: Double, currentDistance: Double): Doub
     return sqrt(maxRadius * maxRadius - currentDistance * currentDistance)
 }
 
-//R is the radius of the cone, H the height and x the point in which we want the radius "y"
-fun heightFunctionOfCone(R:Double, H: Double, x: Double): Double{
-    return (R-(R/H)*x)
-}
 //R1 is the base or bigger radius, R2 is the second or lower radius, H the height and x the point in which we want the radius "y"
 fun heightFunctionOfCutCone(R1:Double, R2: Double, H: Double, x: Double): Double{
     return (R1 + ((R2-R1)/H) * x)
@@ -65,24 +61,62 @@ fun electricFieldOfHemisphere(charge: Double, pointDistance: Double, hemisphereR
         distance += partitionDistance
 
     }
+    return sumOfFields
+}
+
+//R is the radius of the cone, H the height and x the point in which we want the radius "y"
+fun heightFunctionOfCone(R:Double, H: Double, x: Double): Double{
+    return (R-(R/H)*x)
+}
+fun electricFieldOfCone(charge: Double, radius:Double, height: Double, pointDistance: Double): Double{
+    val qtyOfPartitions = 1000
+    val partitionDistance = height / qtyOfPartitions
+    val chargePerPartition = charge / qtyOfPartitions
+
+    var distance: Double = partitionDistance
+    var sumOfFields = 0.0
+
+    while(distance < height){
+        val partitionRadius = heightFunctionOfCone(radius,height,distance)
+        val distanceOfPartition = height - distance + pointDistance
+        val partitionField = electricFieldOfDisc(chargePerPartition, distanceOfPartition, partitionRadius)
+        //println("Field: $partitionField")
+        //println("Radius: $partitionRadius")
+        //println("distance: $distanceOfPartition")
+        //println("--------")
+
+        sumOfFields += partitionField
+        distance += partitionDistance
+    }
 
     return sumOfFields
 }
 
-fun electricFieldOfCone(){
+fun electricFieldOfCutCone(charge: Double, radius1:Double, radius2:Double, height: Double, pointDistance: Double): Double{
+    val qtyOfPartitions = 1000
+    val partitionDistance = height / qtyOfPartitions
+    val chargePerPartition = charge / qtyOfPartitions
 
-}
+    var distance: Double = partitionDistance
+    var sumOfFields = 0.0
 
-fun electricFieldOfCutCone(){
+    while(distance <= height){
+        val partitionRadius = heightFunctionOfCutCone(radius1, radius2, height, distance)
+        println("Height at $distance: $partitionRadius")
+        distance += partitionDistance
 
+    }
+
+    return sumOfFields
 }
 
 fun main() {
     //volumeOfSemiCircle(3.0)
-    //println("Disco " + electricFieldOfDisc(1e-6, 0.0001, 5.0))
+    println("Disc: " + electricFieldOfDisc(1e-6, 0.0001, 5.0))
 
-    //println("Hemisphere " + electricFieldOfHemisphere(1e-6, 0.0001, 5.0))
+    println("Hemisphere: " + electricFieldOfHemisphere(1e-6, 0.0001, 5.0))
 
-    println("Height in cone: " + heightFunctionOfCone(5.0,10.0, 3.6))
-    println("Height in cut cone: " + heightFunctionOfCutCone(10.0,5.0,5.0,4.8))
+    println("Cone: " + electricFieldOfCone(1e-6,5.0,5.0,1.0))
+    //electricFieldOfCutCone(1e-6,10.0,5.0,5.0, 10.0)
+
 }
