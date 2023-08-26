@@ -3,9 +3,19 @@ package com.example.ejercicio5_parcial1_f3
 import kotlin.math.PI
 import kotlin.math.sqrt
 
-fun functionOfSemicircle(maxRadius: Double, currentRadius: Double): Double {
-    return sqrt(maxRadius * maxRadius - currentRadius * currentRadius)
+fun heightFunctionOfSemicircle(maxRadius: Double, currentDistance: Double): Double {
+    return sqrt(maxRadius * maxRadius - currentDistance * currentDistance)
 }
+
+//R is the radius of the cone, H the height and x the point in which we want the radius "y"
+fun heightFunctionOfCone(R:Double, H: Double, x: Double): Double{
+    return (R-(R/H)*x)
+}
+//R1 is the base or bigger radius, R2 is the second or lower radius, H the height and x the point in which we want the radius "y"
+fun heightFunctionOfCutCone(R1:Double, R2: Double, H: Double, x: Double): Double{
+    return (R1 + ((R2-R1)/H) * x)
+}
+
 fun electricFieldOfDisc(QCharge: Double, distance: Double, radius: Double): Double {
     val Eo = 8.85e-12
 
@@ -23,7 +33,7 @@ fun volumeOfSemiCircle(radius: Double) {
     var sumOfVolumes: Double = 0.0
 
     while (distance <= radius) {
-        val partitionRadius = functionOfSemicircle(radius, distance)
+        val partitionRadius = heightFunctionOfSemicircle(radius, distance)
         val partitionArea = PI * partitionRadius * partitionRadius
         val partitionVolume = (partitionArea * partitionDistance)  // Volume of each partition
 
@@ -43,7 +53,7 @@ fun electricFieldOfHemisphere(charge: Double, pointDistance: Double, hemisphereR
     var sumOfFields = 0.0
 
     while(distance <= hemisphereRadius){
-        val partitionRadius = functionOfSemicircle(hemisphereRadius, distance)
+        val partitionRadius = heightFunctionOfSemicircle(hemisphereRadius, distance)
         val distanceOfPartition =  distance + pointDistance
         val partitionField = electricFieldOfDisc(chargePerPartition, distanceOfPartition, partitionRadius)
         //println("Field: $partitionField")
@@ -69,7 +79,10 @@ fun electricFieldOfCutCone(){
 
 fun main() {
     //volumeOfSemiCircle(3.0)
-    println("Disco " + electricFieldOfDisc(1e-6, 0.0001, 5.0))
+    //println("Disco " + electricFieldOfDisc(1e-6, 0.0001, 5.0))
 
-    println("Hemisferio " + electricFieldOfHemisphere(1e-6, 0.0001, 5.0))
+    //println("Hemisphere " + electricFieldOfHemisphere(1e-6, 0.0001, 5.0))
+
+    println("Height in cone: " + heightFunctionOfCone(5.0,10.0, 3.6))
+    println("Height in cut cone: " + heightFunctionOfCutCone(10.0,5.0,5.0,4.8))
 }
