@@ -16,8 +16,8 @@
         android:layout_height="wrap_content"
         android:text="Simulador de campo eléctrico con figuras 3D"
         android:textSize="30dp"
-        android:paddingTop="100dp"
-        android:paddingBottom="80dp"
+        android:paddingTop="50dp"
+        android:paddingBottom="70dp"
         android:gravity="center_horizontal"/>
 
     <TextView
@@ -30,7 +30,7 @@
         android:gravity="center_horizontal"/>
 
     <Spinner
-        android:id="@+id/spinnerGameBoard"
+        android:id="@+id/spinnerShapes"
         android:layout_width="200dp"
         android:layout_height="60dp"
         android:entries="@array/Shapes"
@@ -40,7 +40,6 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
 
         <TableRow
             android:gravity ="center">
@@ -74,7 +73,7 @@
                 android:ems="10"
                 android:textSize="15sp"
                 android:hint="Ej: 1.00"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:layout_weight="1" />
             <EditText
                 android:id="@+id/txtDistanceInput"
@@ -83,9 +82,8 @@
                 android:ems="10"
                 android:textSize="15sp"
                 android:hint="Ej: 8.34"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:layout_weight="1" />
-
         </TableRow>
 
         <TextView
@@ -114,7 +112,7 @@
                     android:ems="10"
                     android:textSize="15sp"
                     android:hint="Elige una figura"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:layout_weight="1" />
                 <EditText
                     android:id="@+id/txtInputBox2"
@@ -123,7 +121,7 @@
                     android:ems="10"
                     android:textSize="15sp"
                     android:hint="Elige una figura"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:layout_weight="1" />
 
             </TableRow>
@@ -139,17 +137,8 @@
                     android:ems="10"
                     android:textSize="15sp"
                     android:hint="Elige una figura"
-                    android:inputType="number"
-                    android:layout_weight="1" />
-                <EditText
-                    android:id="@+id/txtInputBox4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:textSize="15sp"
-                    android:hint="Elige una figura"
-                    android:inputType="number"
-                    android:layout_weight="1" />
+                    android:inputType="numberDecimal"
+                     />
 
             </TableRow>
 
