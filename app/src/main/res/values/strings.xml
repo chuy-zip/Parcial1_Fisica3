@@ -5,4 +5,6 @@
         <item>Cono Truncado</item>
         <item>Cono </item>
     </string-array>
+    <string name="coneDescription">Imagen del cono en 3D.</string>
+    <string name="fieldDirection">Dirección del campo.</string>
 </resources>
