@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Ejercicio5_Parcial1_F3</string>
+    <string name="coneDescription">Imagen del cono en 3D.</string>
+    <string name="fieldDirection">Dirección del campo.</string>
 </resources>

@@ -13,13 +13,12 @@
         android:theme="@style/Theme.Ejercicio5_Parcial1_F3"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivityData"
+            android:name=".SimulatorScreen"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".MainActivityData"
             android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.Ejercicio5_Parcial1_F3">
+            android:theme="@style/Theme.AppCompat">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,5 +26,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>
