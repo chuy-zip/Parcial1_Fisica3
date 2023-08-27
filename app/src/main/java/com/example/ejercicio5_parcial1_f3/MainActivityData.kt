@@ -37,37 +37,37 @@ class MainActivityData : AppCompatActivity() {
                 position: Int,
                 id: Long
             ) {
-                var selectedShape = cmbShapes.selectedItem.toString()
-                if(selectedShape.equals("Hemisferio")){
-                    inputBox1.setHint("Radio")
+                val selectedShape = cmbShapes.selectedItem.toString()
+                if(selectedShape == "Hemisferio"){
+                    inputBox1.hint = "Radio"
                     inputBox1.isEnabled = true
 
-                    inputBox2.setHint("-")
+                    inputBox2.hint = "-"
                     inputBox2.isEnabled = false
 
-                    inputBox3.setHint("-")
+                    inputBox3.hint = "-"
                     inputBox3.isEnabled = false
 
                 }
-                if(selectedShape.equals("Cono")){
-                    inputBox1.setHint("Radio")
+                if(selectedShape == "Cono"){
+                    inputBox1.hint = "Radio"
                     inputBox1.isEnabled = true
 
-                    inputBox2.setHint("Altura")
+                    inputBox2.hint = "Altura"
                     inputBox2.isEnabled = true
 
-                    inputBox3.setHint("-")
+                    inputBox3.hint = "-"
                     inputBox3.isEnabled = false
 
                 }
-                if(selectedShape.equals("Cono Truncado")){
-                    inputBox1.setHint("Radio mayor")
+                if(selectedShape == "Cono Truncado"){
+                    inputBox1.hint = "Radio mayor"
                     inputBox1.isEnabled = true
 
-                    inputBox2.setHint("Radio menor")
+                    inputBox2.hint = "Radio menor"
                     inputBox2.isEnabled = true
 
-                    inputBox3.setHint("Altura")
+                    inputBox3.hint = "Altura"
                     inputBox3.isEnabled = true
 
                 }
