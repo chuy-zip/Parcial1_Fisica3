@@ -2,6 +2,7 @@ package com.example.ejercicio5_parcial1_f3
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.compose.runtime.Composable
 
 class MainActivityData : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

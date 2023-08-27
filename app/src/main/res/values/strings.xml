@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Ejercicio5_Parcial1_F3</string>
+    <string-array name = "Shapes">
+        <item>Hemisferio </item>
+        <item>Cono Truncado</item>
+        <item>Cono </item>
+    </string-array>
 </resources>

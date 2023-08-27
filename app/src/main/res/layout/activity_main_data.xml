@@ -1,9 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="top|center"
+    android:paddingRight="30dp"
+    android:paddingLeft="30dp"
     tools:context=".MainActivityData">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Simulador de campo eléctrico con figuras 3D"
+        android:textSize="30dp"
+        android:paddingTop="100dp"
+        android:paddingBottom="80dp"
+        android:gravity="center_horizontal"/>
+
+    <TextView
+        android:id="@+id/textViewShape"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selecciona una figura"
+        android:textSize="20dp"
+        android:padding="10dp"
+        android:gravity="center_horizontal"/>
+
+    <Spinner
+        android:id="@+id/spinnerGameBoard"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:entries="@array/Shapes"
+        android:padding="10dp"
+        />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TableRow
+            android:gravity ="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Carga (micro C)"
+
+                android:textSize="20sp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Distancia (metros)"
+
+                android:textSize="20sp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"/>
+
+        </TableRow>
+
+        <TableRow
+            android:gravity = "center">
+
+            <EditText
+                android:id="@+id/txtChargeInput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textSize="15sp"
+                android:hint="Ej: 1.00"
+                android:inputType="number"
+                android:layout_weight="1" />
+            <EditText
+                android:id="@+id/txtDistanceInput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textSize="15sp"
+                android:hint="Ej: 8.34"
+                android:inputType="number"
+                android:layout_weight="1" />
+
+        </TableRow>
+
+        <TextView
+            android:id="@+id/textViewCharacteristics"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ingresa las dimensiones de la figura (metros)"
+            android:textSize="20dp"
+            android:padding="30dp"
+            android:paddingBottom="10dp"
+            android:gravity="center_horizontal"/>
+
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TableRow
+                android:gravity ="center">
+
+                <EditText
+                    android:id="@+id/txtInputBox1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:textSize="15sp"
+                    android:hint="Elige una figura"
+                    android:inputType="number"
+                    android:layout_weight="1" />
+                <EditText
+                    android:id="@+id/txtInputBox2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:textSize="15sp"
+                    android:hint="Elige una figura"
+                    android:inputType="number"
+                    android:layout_weight="1" />
+
+            </TableRow>
+
+            <TableRow
+                android:gravity = "center"
+                android:paddingBottom="15dp">
+
+                <EditText
+                    android:id="@+id/txtInputBox3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:textSize="15sp"
+                    android:hint="Elige una figura"
+                    android:inputType="number"
+                    android:layout_weight="1" />
+                <EditText
+                    android:id="@+id/txtInputBox4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:textSize="15sp"
+                    android:hint="Elige una figura"
+                    android:inputType="number"
+                    android:layout_weight="1" />
+
+            </TableRow>
+
+        </TableLayout>
+
+    </TableLayout>
+
+    <Button
+        android:id="@+id/btnStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Continuar"
+        android:padding="20dp"
+        android:textSize="20sp"
+        />
+
+</androidx.appcompat.widget.LinearLayoutCompat>
