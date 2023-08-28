@@ -4,7 +4,9 @@
         <item>Hemisferio </item>
         <item>Cono Truncado</item>
         <item>Cono </item>
+
     </string-array>
-    <string name="coneDescription">Imagen del cono en 3D.</string>
+    <string name="figureDescription">Imagen de la figura en 3D.</string>
     <string name="fieldDirection">Dirección del campo.</string>
+    <string name="figure">"@drawable.normalcone"</string>
 </resources>

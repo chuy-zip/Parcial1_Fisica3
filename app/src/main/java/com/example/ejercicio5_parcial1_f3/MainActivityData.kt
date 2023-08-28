@@ -1,5 +1,6 @@
 package com.example.ejercicio5_parcial1_f3
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -17,6 +18,8 @@ class MainActivityData : AppCompatActivity() {
     private lateinit var inputBox2: EditText
     private lateinit var inputBox3: EditText
     private lateinit var cmbShapes: Spinner
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_data)
@@ -47,7 +50,6 @@ class MainActivityData : AppCompatActivity() {
 
                     inputBox3.hint = "-"
                     inputBox3.isEnabled = false
-
                 }
                 if(selectedShape == "Cono"){
                     inputBox1.hint = "Radio"
@@ -79,7 +81,37 @@ class MainActivityData : AppCompatActivity() {
         }
 
         btnContinue.setOnClickListener{
+            val intent = Intent(this,SimulatorScreen::class.java)
+            val selectedShape = cmbShapes.selectedItem.toString()
 
+            val hemiRadio = inputBox1.text.toString()
+
+            val coneRadio = inputBox1.text.toString()
+            val coneHeight = inputBox2.text.toString()
+
+            val truncadedConeRadio = inputBox1.text.toString()
+            val truncadedConeHeight = inputBox2.text.toString()
+            val truncadedConeRadio2 = inputBox3.text.toString()
+
+            intent.putExtra("selectedShape", selectedShape)
+
+            when (selectedShape) {
+                "Hemisferio" ->
+                    intent.putExtra("Radio", hemiRadio)
+
+                "Cono" -> {
+                    intent.putExtra("Radio", coneRadio)
+                    intent.putExtra("Height", coneHeight)
+                }
+
+                "Cono Truncado" -> {
+                    intent.putExtra("Radio", truncadedConeRadio)
+                    intent.putExtra("Height", truncadedConeHeight)
+                    intent.putExtra("Radio2", truncadedConeRadio2)
+                }
+            }
+
+            startActivity(intent)
         }
     }
 }
