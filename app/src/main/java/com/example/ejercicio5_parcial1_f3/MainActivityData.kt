@@ -110,7 +110,8 @@ class MainActivityData : AppCompatActivity() {
                     intent.putExtra("Radio2", truncadedConeRadio2)
                 }
             }
-
+            intent.putExtra("Charge", inputCharge.text.toString().toDouble())
+            intent.putExtra("Distance", inputDistance.text.toString().toDouble())
             startActivity(intent)
         }
     }

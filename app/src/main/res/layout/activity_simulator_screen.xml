@@ -3,24 +3,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
     tools:context=".SimulatorScreen"
     android:background="@drawable/gridimage"
     android:gravity="center_vertical"
+    android:orientation="horizontal"
     android:id="@+id/Background">
 
     <ImageView
         android:id="@+id/Point"
         android:layout_width="25dp"
         android:layout_height="28dp"
+        android:layout_centerVertical="true"
         android:contentDescription="@string/fieldDirection"
-        tools:srcCompat="@drawable/bluedot"
-        />
+        tools:srcCompat="@drawable/bluedot" />
 
     <ImageView
         android:id="@+id/Figure"
         android:layout_width="120dp"
         android:layout_height="116dp"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="18dp"
         android:contentDescription="@string/figureDescription"
         android:scaleType="fitXY"
         tools:srcCompat="@drawable/bluesphere" />
@@ -29,6 +31,25 @@
         android:id="@+id/Arrow"
         android:layout_width="130dp"
         android:layout_height="70dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="168dp"
+        android:layout_marginTop="7dp"
         android:contentDescription="@string/fieldDirection"
         tools:srcCompat="@drawable/bluearrow" />
+
+    <TextView
+        android:id="@+id/ElectricField"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="323dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginBottom="335dp"
+        android:text="5.0 C"
+        android:textColor="@color/black"
+        android:textSize="50dp"
+        android:textStyle="bold" />
+
 </RelativeLayout>
