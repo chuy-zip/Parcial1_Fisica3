@@ -59,7 +59,7 @@
                 android:layout_weight="1"
 
                 android:gravity="center_horizontal"
-                android:text="Distancia (px)"
+                android:text="Distancia (m)"
                 android:textSize="20sp" />
 
         </TableRow>
