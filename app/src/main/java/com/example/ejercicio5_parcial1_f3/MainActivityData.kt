@@ -84,34 +84,35 @@ class MainActivityData : AppCompatActivity() {
             val intent = Intent(this,SimulatorScreen::class.java)
             val selectedShape = cmbShapes.selectedItem.toString()
 
-            val hemiRadio = inputBox1.text.toString()
-
-            val coneRadio = inputBox1.text.toString()
-            val coneHeight = inputBox2.text.toString()
-
-            val truncadedConeRadio = inputBox1.text.toString()
-            val truncadedConeHeight = inputBox2.text.toString()
-            val truncadedConeRadio2 = inputBox3.text.toString()
+            val userCharge = inputCharge.text.toString().toDouble()
+            val userDistance = inputDistance.text.toString().toDouble()
 
             intent.putExtra("selectedShape", selectedShape)
 
             when (selectedShape) {
-                "Hemisferio" ->
-                    intent.putExtra("Radio", hemiRadio)
+                "Hemisferio" -> {
+                    val radio = inputBox1.text.toString().toDouble()
+                    intent.putExtra("Radius", radio)
+                }
 
                 "Cono" -> {
-                    intent.putExtra("Radio", coneRadio)
-                    intent.putExtra("Height", coneHeight)
+                    val radio = inputBox1.text.toString().toDouble()
+                    val height = inputBox2.text.toString().toDouble()
+                    intent.putExtra("Radio", radio)
+                    intent.putExtra("Height", height)
                 }
 
                 "Cono Truncado" -> {
-                    intent.putExtra("Radio", truncadedConeRadio)
-                    intent.putExtra("Height", truncadedConeHeight)
-                    intent.putExtra("Radio2", truncadedConeRadio2)
+                    val radio = inputBox1.text.toString().toDouble()
+                    val height = inputBox2.text.toString().toDouble()
+                    val truncadedConeRadio = inputBox3.text.toString().toDouble()
+                    intent.putExtra("Radio", radio)
+                    intent.putExtra("Height", height)
+                    intent.putExtra("Radio2", truncadedConeRadio)
                 }
             }
-            intent.putExtra("Charge", inputCharge.text.toString().toDouble())
-            intent.putExtra("Distance", inputDistance.text.toString().toDouble())
+            intent.putExtra("Charge", userCharge)
+            intent.putExtra("Distance", userDistance)
             startActivity(intent)
         }
     }

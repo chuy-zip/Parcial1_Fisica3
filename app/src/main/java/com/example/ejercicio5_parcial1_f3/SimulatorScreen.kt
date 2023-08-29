@@ -4,11 +4,11 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import java.math.RoundingMode
 import java.text.DecimalFormat
-import kotlin.math.roundToInt
 
 class SimulatorScreen : AppCompatActivity() {
 
@@ -34,16 +34,32 @@ class SimulatorScreen : AppCompatActivity() {
 
                 // Calculando campo
                 val charge = intent.getDoubleExtra("Charge", 1.0)
-                val distance = intent.getDoubleExtra("Distance", 5.0)
-                val radio = intent.getDoubleExtra("Radio", 1.0)
-                val electricField = electricFieldOfHemisphere(charge, distance, radio)
+                val distance = intent.getDoubleExtra("Distance", 1.0)
+                val radio = intent.getDoubleExtra("Radius", 1.0)
+                val electricField = electricFieldOfHemisphere(charge/1000000, distance, radio)
 
-                electricFieldTextView.text = roundNumber(electricField).toString()
+                val electricFieldRounded = roundNumber(electricField)
 
-                if (distance <= 1000) {
-                    dotImageView.x = 273 + distance.toFloat()
+                electricFieldTextView.text = electricFieldRounded.toString()
+
+                if (distance <= 47) {
+                    dotImageView.x = (distance  * 37.78F).toFloat()
                 } else {
-                    dotImageView.x = 1500F
+                    dotImageView.x = 47F * 37.8F
+                    Toast.makeText(this, "Partícula ha superado la distancia máxima. Colocada en 47 m.", Toast.LENGTH_LONG).show()
+                }
+
+                if (electricField >= 1500) {
+                    arrowImageView.alpha = 1F
+
+                } else if (electricField in 1000.0..1500.0) {
+                    arrowImageView.alpha = 0.7F
+
+                } else if (electricField in 600.0..1000.0) {
+                    arrowImageView.alpha = 0.5F
+
+                } else {
+                    arrowImageView.alpha = 0.2F
                 }
             }
 
@@ -55,14 +71,28 @@ class SimulatorScreen : AppCompatActivity() {
                 val height = intent.getDoubleExtra("Height", 1.0)
                 val radio = intent.getDoubleExtra("Radio", 1.0)
                 val distance = intent.getDoubleExtra("Distance", 1.0)
-                val electricField = electricFieldOfCone(charge, radio, height, distance)
+                val electricField = electricFieldOfCone(charge/1000000, radio, height, distance)
 
                 electricFieldTextView.text = roundNumber(electricField).toString()
 
-                if (distance <= 1000) {
-                    dotImageView.x = 273 + distance.toFloat()
+                if (distance <= 47) {
+                    dotImageView.x = (distance  * 37.78F).toFloat()
                 } else {
-                    dotImageView.x = 1500F
+                    dotImageView.x = 47F * 37.8F
+                    Toast.makeText(this, "Partícula ha superado la distancia máxima. Colocada en 47 m.", Toast.LENGTH_LONG).show()
+                }
+
+                if (electricField >= 1500) {
+                    arrowImageView.alpha = 1F
+
+                } else if (electricField in 1000.0..1500.0) {
+                    arrowImageView.alpha = 0.7F
+
+                } else if (electricField in 600.0..1000.0) {
+                    arrowImageView.alpha = 0.5F
+
+                } else {
+                    arrowImageView.alpha = 0.2F
                 }
             }
 
@@ -76,22 +106,33 @@ class SimulatorScreen : AppCompatActivity() {
                 val height = intent.getDoubleExtra("Height", 1.0)
                 val distance = intent.getDoubleExtra("Distance", 1.0)
 
-                val electricField = electricFieldOfTruncatedCone(charge, radio, radio2, height, distance)
+                val electricField = electricFieldOfTruncatedCone(charge/1000000, radio, radio2, height, distance)
 
                 electricFieldTextView.text = roundNumber(electricField).toString()
 
-                if (distance <= 1000) {
-                    dotImageView.x = 273 + distance.toFloat()
+                if (distance <= 47) {
+                    dotImageView.x = (distance  * 37.78F).toFloat()
                 } else {
-                    dotImageView.x = 1500F
+                    dotImageView.x = 47F * 37.8F
+                    Toast.makeText(this, "Partícula ha superado la distancia máxima. Colocada en 47 m.", Toast.LENGTH_LONG).show()
+                }
+
+                if (electricField >= 1500) {
+                    arrowImageView.alpha = 1F
+
+                } else if (electricField in 1000.0..1500.0) {
+                    arrowImageView.alpha = 0.7F
+
+                } else if (electricField in 600.0..1000.0) {
+                    arrowImageView.alpha = 0.5F
+
+                } else {
+                    arrowImageView.alpha = 0.2F
                 }
             }
         }
-
         dotImageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.bluedot))
-
         arrowImageView.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.bluearrow))
-        arrowImageView.alpha = 0.5F
     }
 }
 
